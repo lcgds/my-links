@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<!--
+  To Do List
+  - Modularizar classes CSS com base em componentes
+  - Ajustar metas no head
+  - Incluir ícones SVG via FontAwesome
+-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--npx tailwindcss -i ./input.css -o ./output.css --watch-->
+  <link href="/output.css" rel="stylesheet">
+
+  <!--<link rel="shortcut icon" href="./src/figures/business-center.svg" type="image/svg+xml">-->
+  <title>Link</title>
+  <meta name="description" content="Assesoria Paralegal, Contábil e de Investimentos. Conte conosco em serviços estratégicos para alcançar o sucesso financeiro.">
+    <meta name="theme-color" content="#0D47A1" />
+
+    <!--Ajustar antes de publicar: url e image -->
+    <meta property="og:title" content="JCF Assessoria">
+    <meta property="og:description" content="Assesoria Paralegal, Contábil e de Investimentos. Conte conosco em serviços estratégicos para alcançar o sucesso financeiro.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:url" content="https://www.web.com/">
+    <meta property="og:image" content="url(./src/figures/display.png)">
+
+</head>
+
+<body class="font-sans bg-gradient-to-b from-[#332953] to-[#665b66] bg-no-repeat h-screen">
+  <!--Perfil-->
+  <header class="pt-20 container mx-auto flex justify-center">
+    <section class="">
+      <h1 class="sr-only">Perfil</h1>
+
+      <figure>
+        <div class="bg-gray-100 rounded-full w-24 h-24 mx-auto"></div>
+        <!--<img src="" alt="">-->
+      </figure>
+
+      <p class="mt-4 font-medium text-2xl text-white">Luiz Garrido</p>
+    </section>
+  </header>
+
+  <!--Redes sociais-->
+  <main class="pt-12 container mx-auto flex justify-center gap-4">
+
+    <h2 class="sr-only">Redes sociais</h2>
+
+    <div class="bg-gray-100 rounded-full w-14 h-14 drop-shadow-sm drop-shadow-md"></div>
+    <div class="bg-gray-100 rounded-full w-14 h-14 drop-shadow-sm drop-shadow-md"></div>
+    <div class="bg-gray-100 rounded-full w-14 h-14 drop-shadow-sm drop-shadow-md"></div>
+  </main>
+
+  <!--Outros links-->
+  <section class="pt-10 container mx-auto flex-row">
+    <h2 class="sr-only">Outros links</h2>
+
+    <a class="block mx-auto bg-gray-100 h-14 w-80 md:w-96 py-4 px-8 rounded-3xl mb-4 drop-shadow-sm drop-shadow-md" href="" target="_blank">
+      <div class="bg-white w-6 h-6 inline-flex"></div>
+      <span class="pl-4 align-top">Livros que leio</span>
+    </a>
+
+    <a class="block mx-auto bg-gray-100 h-14 w-80 md:w-96 py-4 px-8 rounded-3xl mb-4 drop-shadow-sm drop-shadow-md" href="" target="_blank">
+      <div class="bg-white w-6 h-6 inline-flex"></div>
+      <span class="pl-4 align-top">Filmes que assisto</span>
+    </a>
+
+    <a class="block mx-auto bg-gray-100 h-14 w-80 md:w-96 py-4 px-8 rounded-3xl mb-4 drop-shadow-sm drop-shadow-md" href="" target="_blank">
+      <div class="bg-white w-6 h-6 inline-flex"></div>
+      <span class="pl-4 align-top">Códigos que desenvolvo</span>
+    </a>
+  </section>
+
+  <!--Rodapé-->
+  <footer class="w-full absolute bottom-0">
+    <p class="text-center text-white font-medium pb-6">Desenvolvido por Luiz Garrido.</p>
+  </footer>
+</body>
+
+</html>
