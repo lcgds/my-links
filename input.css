@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.social-link {
+  @apply bg-gray-100 flex items-center justify-center rounded-full w-14 h-14 drop-shadow-sm drop-shadow-md;
+}
+
+.social-link svg {
+  @apply w-10 h-10;
+}
+
+.general-link {
+  @apply block mx-auto bg-gray-100 h-14 w-80 py-4 px-8 rounded-3xl mb-5 drop-shadow-sm drop-shadow-md;
+}
+
+.general-link svg {
+  @apply w-6 h-6 inline-flex;
+}
+
+.general-link span {
+  @apply pl-4 align-top inline-block text-center;
+}
+
+svg {
+  @apply fill-purple-900;
+}
