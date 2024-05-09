@@ -44,7 +44,7 @@ jobs:
     - run: npx minify ./output.css > ./output.min.css
 
     - name: Lista FS
-    - uses: actions/checkout@v4
+      uses: actions/checkout@v4
     - run: tree
     
     - name: Substitui link no index.html
