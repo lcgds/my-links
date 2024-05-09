@@ -1,7 +1,7 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Node.js CI
+name: Test and Build
 
 on:
   push:
@@ -12,19 +12,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x, 18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
+    
     steps:
+    
     - uses: actions/checkout@v4
     
     - name: Executa Node.js ${{ matrix.node-version }} 
       uses: actions/setup-node@v3
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 16.x
         cache: 'npm'
     - run: npm ci
     - run: npm install
@@ -35,19 +31,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    
+    - name: Executa npx para processar TailwindCSS
+      uses: mikeal/npx@1.0.0
+    - run: npx tailwindcss -i ./input.css -o ./output.css
+
     - name: Lista FileSystem
       uses: actions/checkout@v4
     - run: tree
     
-    - name: Executa npx para processar TailwindCSS
-      uses: mikeal/npx@1.0.0
-    - run: npx tailwindcss -i ~/input.css -o ~/output.css
-
     - name: Executa npx para processar Minify
       uses: mikeal/npx@1.0.0
-    - run: npx minify ~/index.html > ~/index.min.css
-    - run: npx minify ~/output.css > ~/output.min.css
+    - run: npx minify ./index.html > ./index.min.css
+    - run: npx minify ./output.css > ./output.min.css
 
     - name: Substitui link no index.html
       uses: actions/checkout@v4
-    - run: sed -i "s/output.css/output.min.css/g" ~/index.min.html
+    - run: sed -i "s/output.css/output.min.css/g" ./index.min.html
