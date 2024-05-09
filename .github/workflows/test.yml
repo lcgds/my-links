@@ -38,9 +38,6 @@ jobs:
       uses: mikeal/npx@1.0.0
       continue-on-error: true
     - run: npx tailwindcss -i ./input.css -o ./output.css
-
-    - name: Lista FileSystem
-    - run: tree
     
     - name: Executa npx para processar Minify
       uses: mikeal/npx@1.0.0
