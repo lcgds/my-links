@@ -11,7 +11,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -29,16 +28,22 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm install
+    - run: npm fund
 
+  npx:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
     - name: Executa npx para processar TailwindCSS
       uses: mikeal/npx@1.0.0
-    - run: npx tailwindcss -i input.css -o output.css
+    - run: npx tailwindcss -i ~/input.css -o ~/output.css
 
     - name: Executa npx para processar Minify
       uses: mikeal/npx@1.0.0
-    - run: npx minify index.html > index.min.css
-    - run: npx minify output.css > output.min.css
+    - run: npx minify ~/index.html > ~/index.min.css
+    - run: npx minify ~/output.css > ~/output.min.css
 
     - name: Substitui link no index.html
       uses: actions/checkout@v4
-    - run: sed -i "s/output.css/output.min.css/g" index.min.html
+    - run: sed -i "s/output.css/output.min.css/g" ~/index.min.html
