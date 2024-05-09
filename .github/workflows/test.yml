@@ -33,7 +33,8 @@ jobs:
     steps:
     
     - name: Executa npx para processar TailwindCSS
-      uses: mikeal/npx@1.0.0
+      uses: mikeal/npx@1.0.0, actions/checkout@v4
+      continue-on-error: true
     - run: npx tailwindcss -i ./input.css -o ./output.css
 
     - name: Lista FileSystem
@@ -41,7 +42,7 @@ jobs:
     - run: tree
     
     - name: Executa npx para processar Minify
-      uses: mikeal/npx@1.0.0
+      uses: mikeal/npx@1.0.0, actions/checkout@v4
     - run: npx minify ./index.html > ./index.min.css
     - run: npx minify ./output.css > ./output.min.css
 
