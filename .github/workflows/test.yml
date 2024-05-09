@@ -36,7 +36,6 @@ jobs:
     
     - name: Executa npx para processar TailwindCSS
       uses: mikeal/npx@1.0.0
-      continue-on-error: true
     - run: npx tailwindcss -i ./input.css -o ./output.css
     
     - name: Executa npx para processar Minify
@@ -45,4 +44,5 @@ jobs:
     - run: npx minify ./output.css > ./output.min.css
 
     - name: Substitui link no index.html
+      uses: actions/checkout@v4
     - run: sed -i "s/output.css/output.min.css/g" ./index.min.html
