@@ -43,6 +43,12 @@ jobs:
     - run: npx minify ./index.html > ./index.min.css
     - run: npx minify ./output.css > ./output.min.css
 
+  link:
+    needs: [build, npx]
+    runs-on: ubuntu-latest
+
+    steps:
+    
     - name: Substitui link no index.html
       uses: actions/checkout@v4
     - run: sed -i "s/output.css/output.min.css/g" ./index.min.html
