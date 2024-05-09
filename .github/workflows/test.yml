@@ -35,6 +35,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Lista FileSystem
+      uses: actions/checkout@v4
+    - run: tree
+    
     - name: Executa npx para processar TailwindCSS
       uses: mikeal/npx@1.0.0
     - run: npx tailwindcss -i ~/input.css -o ~/output.css
