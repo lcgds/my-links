@@ -36,6 +36,7 @@ jobs:
     - run: npx minify ./index.html > ./index.min.html
     - run: npx minify ./output.css > ./output.min.css
     - run: sed -i "s/output.css/output.min.css/g" ./index.min.html
+    - run: tree -L 1
   
     - name: Commit files
       run: |
