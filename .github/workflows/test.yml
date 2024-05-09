@@ -17,7 +17,7 @@ jobs:
     
     - uses: actions/checkout@v4
     
-    - name: Executa Node.js ${{ matrix.node-version }} 
+    - name: Executa Node.js 
       uses: actions/setup-node@v3
       with:
         node-version: 16.x
@@ -25,28 +25,10 @@ jobs:
     - run: npm ci
     - run: npm install
     - run: npm fund
-
-  npx:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-
-    - uses: actions/checkout@v4
     
-    - name: Executa npx para processar TailwindCSS
+    - name: Executa NPX para TailwindCSS e Minify
       uses: mikeal/npx@1.0.0
     - run: npx tailwindcss -i ./input.css -o ./output.css
-    
-    - name: Executa npx para processar Minify
-      uses: mikeal/npx@1.0.0
     - run: npx minify ./index.html > ./index.min.css
     - run: npx minify ./output.css > ./output.min.css
-
-    - name: Lista FS
-      uses: actions/checkout@v4
-    - run: tree
-    
-    - name: Substitui link no index.html
-      uses: actions/checkout@v4
     - run: sed -i "s/output.css/output.min.css/g" ./index.min.html
