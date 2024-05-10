@@ -11,7 +11,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   test:
@@ -45,13 +44,13 @@ jobs:
     - name: Lista arquivos presentes na raiz
       run: tree -L 1
   
-    - name: Commit files
+    - name: Executa Commit
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git add .
-        git commit -a -m "Github Actions Test"
-    - name: Push changes
+        git commit -m "Github Actions Test"
+    - name: Executa Push
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
